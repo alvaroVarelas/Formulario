@@ -25,7 +25,8 @@ const Button = ({children, ...props}: {children: React.ReactNode}) => {
   return (
     <button 
       type='submit'
-      className='bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded'
+      className='px-5 py-3 text-sm font-medium text-white text-center border border-white 
+      rounded-full w-full'
       {...props}
     >
       {children}
@@ -35,9 +36,9 @@ const Button = ({children, ...props}: {children: React.ReactNode}) => {
 
 export default function Home() {
   return (
-    <main className={"${inter.className} flex min-h-screen flex-col items-center justify-center p-24"}>
+    <main className={"${inter.className} flex flex-col min-h-screen items-center justify-center p-24"}>
       <h1 className='text-4xl font-bold tracking-light text-center mb-4'>Gestionar unidad academica</h1>
-      <form className="space-y-5">
+      <form className="space-y-8 border border-white/10 p-8 rounded">
         <Input 
           id="id"
           name="id"
@@ -61,7 +62,7 @@ export default function Home() {
           type="text"
           placeholder="Ingrese decano"
         />
-
+        <Button>Guardar</Button>
       </form>
     </main>
   )
