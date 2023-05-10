@@ -1,7 +1,6 @@
 'use client'
 import { Input } from '@/components/Input'
 import { Button } from '@/components/Button'
-import React from 'react'
 
 export const Form = () => {
      const handleSubmit = (e: React.FormEvent<HTMLFormElement>) => {
