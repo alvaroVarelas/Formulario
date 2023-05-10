@@ -3,14 +3,26 @@ import { Input } from '@/components/Input'
 import { Button } from '@/components/Button'
 
 export const Form = () => {
-     const handleSubmit = (e: React.FormEvent<HTMLFormElement>) => {
+    const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
       e.preventDefault()
       const form = e.currentTarget
       const formData = new FormData(form)
       const { id, nombre, decano } = Object.fromEntries(formData.entries())
-      console.log({ id, nombre, decano })// luego componerlo con el backend
 
-     } 
+      //console.log({ id, nombre, decano })// luego componerlo con el backend
+      fetch('/api/Kv-send-message', {
+        method: 'POST',
+        body : JSON.stringify({ id, nombre, decano }),
+        headers: {
+          'Content-Type': 'application/json'
+        }
+      }).then(() => {
+        
+        form.reset()
+      }).catch((error) => {
+        
+      })
+    }
 
     return (
         <form onSubmit={handleSubmit} className="space-y-8 border border-white/10 p-8 rounded">
