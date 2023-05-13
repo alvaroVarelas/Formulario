@@ -1,6 +1,7 @@
 'use client'
 import { Input } from '@/components/Input'
 import { Button } from '@/components/Button'
+import { toast } from 'sonner'
 
 export const Form = () => {
     const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
@@ -17,10 +18,10 @@ export const Form = () => {
           'Content-Type': 'application/json'
         }
       }).then(() => {
-        
+        toast.success('Se guardo correctamente') //mensaje eviado con exito
         form.reset()
       }).catch((error) => {
-        
+        toast.error('No se pudo guardar') //hubo un error al enviar el mensaje
       })
     }
 
