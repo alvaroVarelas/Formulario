@@ -11,7 +11,7 @@ export const Form = () => {
       const { id, nombre, decano } = Object.fromEntries(formData.entries())
 
       //console.log({ id, nombre, decano })// luego componerlo con el backend
-      fetch('/api/Kv-send-message', {
+      fetch('http://54.91.170.218/unidadAcademica', {
         method: 'POST',
         body : JSON.stringify({ id, nombre, decano }),
         headers: {
